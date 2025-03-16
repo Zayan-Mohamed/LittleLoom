@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LittleLoom</string>
+    <string name="welcome_message">Welcome to LittleLoom</string>
+    <string name="sign_in">Sign In</string>
+    <string name="register">Register</string>
+    <string name="next">Next</string>
+</resources>
