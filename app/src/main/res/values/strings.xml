@@ -4,4 +4,15 @@
     <string name="sign_in">Sign In</string>
     <string name="register">Register</string>
     <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="email_or_usrnm">Email or Username\n</string>
+    <string name="pwd">Password</string>
+    <string name="chk_remember">Remember Me</string>
+    <string name="desc_home">"All in one solution for early childhood education "</string>
+    <string name="home">Home</string>
+    <string name="activities">Activities</string>
+    <string name="goals_tips">Goals &amp; Tips</string>
+    <string name="settings">Settings</string>
 </resources>

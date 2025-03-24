@@ -2,6 +2,7 @@ package com.zayan.littleloom
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.zayan.littleloom.databinding.ActivityOnboardingBinding
@@ -41,5 +42,19 @@ class OnboardingActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+                // Hide "Next" button on the last page
+                if (position == onboardingFragments.size - 1) {
+                    nextButton.visibility = View.GONE
+                } else {
+                    nextButton.visibility = View.VISIBLE
+                }
+            }
+        })
+
     }
 }

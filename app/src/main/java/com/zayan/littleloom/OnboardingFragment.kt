@@ -29,8 +29,20 @@ class OnboardingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
+
+        // Select the correct gradient based on page index
+        val background = when (position) {
+            0 -> R.drawable.gradient_neg45 // -45°
+            1 -> R.drawable.gradient_90    // 90°
+            2 -> R.drawable.gradient_45    // 45°
+            else -> R.drawable.gradient_neg45
+        }
+
+        // Set background dynamically
+        binding.gradientRectangle.setBackgroundResource(background)
+
         return binding.root
     }
 
@@ -40,13 +52,23 @@ class OnboardingFragment : Fragment() {
         binding.title.text = title
         binding.description.text = description
 
-        // Show the "Get Started" button only on the last onboarding page
-        if (position == 2) { // Assuming 3 onboarding pages (0, 1, 2)
+        // Select the correct image based on page index
+        val imageRes = when (position) {
+            0 -> R.drawable.ic_onboarding_1
+            1 -> R.drawable.ic_onboarding_2
+            2 -> R.drawable.ic_onboarding_3
+            else -> R.drawable.ic_onboarding_1
+        }
+
+        // Set the image dynamically
+        binding.onboardingImage.setImageResource(imageRes)
+
+        // Show "Get Started" button only on the last onboarding page
+        if (position == 2) {
             binding.getStartedButton.visibility = View.VISIBLE
             binding.getStartedButton.setOnClickListener {
-                // Navigate to the Home Screen
                 startActivity(Intent(requireContext(), HomeActivity::class.java))
-                requireActivity().finish() // Close the onboarding activity
+                requireActivity().finish()
             }
         } else {
             binding.getStartedButton.visibility = View.GONE
@@ -64,13 +86,13 @@ class OnboardingFragment : Fragment() {
         private const val ARG_POSITION = "position"
 
         fun newInstance(title: String, description: String, position: Int): OnboardingFragment {
-            val fragment = OnboardingFragment()
-            val args = Bundle()
-            args.putString(ARG_TITLE, title)
-            args.putString(ARG_DESCRIPTION, description)
-            args.putInt(ARG_POSITION, position)
-            fragment.arguments = args
-            return fragment
+            return OnboardingFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_TITLE, title)
+                    putString(ARG_DESCRIPTION, description)
+                    putInt(ARG_POSITION, position)
+                }
+            }
         }
     }
 }
