@@ -6,42 +6,55 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zayan.littleloom.R
+import com.zayan.littleloom.databinding.FragmentActivitiesBinding
 import com.zayan.littleloom.model.CardItem
-import com.example.littleloom.ui.adapter.CardAdapter
+import com.zayan.littleloom.ui.adapter.CardAdapter
 
 class ActivitiesFragment : Fragment() {
+    private var _binding: FragmentActivitiesBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CardAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_activities, container, false)
+        _binding = FragmentActivitiesBinding.inflate(inflater, container, false)
 
         // Initialize RecyclerView
-        recyclerView = root.findViewById(R.id.rvActivities)
+        recyclerView = binding.rvActivities
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         // Create example data
         val activityItems = createActivityItems()
 
-        // Initialize adapter
+        // Initialize adapter with activity items and click listener
         adapter = CardAdapter(activityItems) { item ->
-            // Handle click on activity item
+            // Handle click on activity item and navigate to corresponding fragment
             Toast.makeText(context, "Clicked: ${item.title}", Toast.LENGTH_SHORT).show()
-            // Navigate to detailed view
-            // Example: findNavController().navigate(R.id.action_activities_to_activityDetail)
+
+            // Navigate based on item ID
+            when (item.id) {
+                1 -> findNavController().navigate(R.id.action_activitiesFragment_to_artsCraftsFragment)
+                2 -> findNavController().navigate(R.id.action_activitiesFragment_to_learningGamesFragment)
+                3 -> findNavController().navigate(R.id.action_activitiesFragment_to_outdoorActivitiesFragment)
+                4 -> findNavController().navigate(R.id.action_activitiesFragment_to_storyTimeFragment)
+                5 -> findNavController().navigate(R.id.action_activitiesFragment_to_musicDanceFragment)
+            }
         }
 
+
+
+        // Set the adapter to RecyclerView
         recyclerView.adapter = adapter
 
-        return root
+        return binding.root
     }
 
     private fun createActivityItems(): List<CardItem> {
@@ -77,5 +90,10 @@ class ActivitiesFragment : Fragment() {
                 R.drawable.ic_music_dance
             )
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

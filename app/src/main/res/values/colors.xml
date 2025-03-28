@@ -5,6 +5,7 @@
     <color name="primaryColor">#4B49AC</color>
     <color name="secondaryColor">#98BDFF</color>
     <color name="accentColor">#F3797E</color>
+    <color name="accentColor50">#80F3797E</color>
     <color name="textColor">#333333</color>
     <color name="gray">#808080</color>
     <color name="backgroundColor">#E4D3FF</color>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    tools:context=".ui.goals.GoalsFragment">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvGoalsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goals &amp; Tips"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Sample Goal 1 -->
+    <CheckBox
+        android:id="@+id/cbGoal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Learn a new skill every month"
+        app:layout_constraintTop_toBottomOf="@id/tvGoalsTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvGoal1Tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set small achievable goals to stay motivated"
+        android:layout_marginTop="6dp"
+        android:textColor="#8A8A8A"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/cbGoal1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Sample Goal 2 -->
+    <CheckBox
+        android:id="@+id/cbGoal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exercise regularly"
+        app:layout_constraintTop_toBottomOf="@id/tvGoal1Tip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvGoal2Tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start with short routines and gradually increase"
+        android:layout_marginTop="6dp"
+        android:textColor="#8A8A8A"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/cbGoal2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Sample Goal 3 -->
+    <CheckBox
+        android:id="@+id/cbGoal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read more books"
+        app:layout_constraintTop_toBottomOf="@id/tvGoal2Tip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvGoal3Tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Try reading at least one chapter daily"
+        android:layout_marginTop="6dp"
+        android:textColor="#8A8A8A"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/cbGoal3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

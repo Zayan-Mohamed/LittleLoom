@@ -1,31 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_graph"
-            app:startDestination="@id/navigation_home">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <!-- Home Fragment -->
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.littleloom.ui.home.HomeFragment"
+        android:name="com.zayan.littleloom.ui.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
 
+        <action
+            android:id="@+id/action_homeFragment_to_activitiesFragment"
+            app:destination="@id/navigation_activities" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_goalsFragment"
+            app:destination="@id/navigation_goals" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+
+    <!-- Activities Fragment -->
     <fragment
         android:id="@+id/navigation_activities"
-        android:name="com.example.littleloom.ui.activities.ActivitiesFragment"
+        android:name="com.zayan.littleloom.ui.activities.ActivitiesFragment"
         android:label="@string/activities"
-        tools:layout="@layout/fragment_activities" />
+        tools:layout="@layout/fragment_activities">
 
+        <action
+            android:id="@+id/action_activitiesFragment_to_homeFragment"
+            app:destination="@id/navigation_home" />
+
+        <action
+            android:id="@+id/action_activitiesFragment_to_goalsFragment"
+            app:destination="@id/navigation_goals" />
+
+        <action
+            android:id="@+id/action_activitiesFragment_to_settingsFragment"
+            app:destination="@id/navigation_settings" />
+
+        <action
+            android:id="@+id/action_activitiesFragment_to_artsCraftsFragment"
+            app:destination="@id/artsCraftsFragment" />
+        <action
+            android:id="@+id/action_activitiesFragment_to_learningGamesFragment"
+            app:destination="@id/learningGamesFragment" />
+        <action
+            android:id="@+id/action_activitiesFragment_to_outdoorActivitiesFragment"
+            app:destination="@id/outdoorActivitiesFragment" />
+        <action
+            android:id="@+id/action_activitiesFragment_to_storyTimeFragment"
+            app:destination="@id/storyTimeFragment" />
+        <action
+            android:id="@+id/action_activitiesFragment_to_musicDanceFragment"
+            app:destination="@id/musicDanceFragment" />
+    </fragment>
+
+    <!-- Goals Fragment -->
     <fragment
         android:id="@+id/navigation_goals"
-        android:name="com.example.littleloom.ui.goals.GoalsFragment"
+        android:name="com.zayan.littleloom.ui.goals.GoalsFragment"
         android:label="@string/goals_tips"
-        tools:layout="@layout/fragment_goals" />
+        tools:layout="@layout/fragment_goals">
 
+        <action
+            android:id="@+id/action_goalsFragment_to_homeFragment"
+            app:destination="@id/navigation_home" />
+
+        <action
+            android:id="@+id/action_goalsFragment_to_activitiesFragment"
+            app:destination="@id/navigation_activities" />
+
+        <action
+            android:id="@+id/action_goalsFragment_to_settingsFragment"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+
+    <!-- Settings Fragment -->
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.littleloom.ui.settings.SettingsFragment"
+        android:name="com.zayan.littleloom.ui.settings.SettingsFragment"
         android:label="@string/settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
 
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/navigation_home" />
+
+        <action
+            android:id="@+id/action_settingsFragment_to_activitiesFragment"
+            app:destination="@id/navigation_activities" />
+
+        <action
+            android:id="@+id/action_settingsFragment_to_goalsFragment"
+            app:destination="@id/navigation_goals" />
+    </fragment>
+
+    <!-- Define the destinations (fragments) for Activities -->
+    <fragment
+        android:id="@+id/artsCraftsFragment"
+        android:name="com.zayan.littleloom.ui.activities.ArtsCraftsFragment"
+        android:label="Arts &amp; Crafts"
+        tools:layout="@layout/fragment_arts_crafts" />
+    <fragment
+        android:id="@+id/learningGamesFragment"
+        android:name="com.zayan.littleloom.ui.activities.LearningGamesFragment"
+        android:label="Learning Games"
+        tools:layout="@layout/fragment_learning_games" />
+    <fragment
+        android:id="@+id/outdoorActivitiesFragment"
+        android:name="com.zayan.littleloom.ui.activities.OutdoorActivitiesFragment"
+        android:label="Outdoor Activities"
+        tools:layout="@layout/fragment_outdoor_activites" />
+    <fragment
+        android:id="@+id/storyTimeFragment"
+        android:name="com.zayan.littleloom.ui.activities.StoryTimeFragment"
+        android:label="Story Time"
+        tools:layout="@layout/fragment_story_time" />
+    <fragment
+        android:id="@+id/musicDanceFragment"
+        android:name="com.zayan.littleloom.ui.activities.MusicDanceFragment"
+        android:label="Music &amp; Dance"
+        tools:layout="@layout/fragment_music_dance" />
+
+    <fragment
+        android:id="@+id/fragment_profile"
+        android:name="com.zayan.littleloom.ui.messages.MessagesFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile"/>
+
+    <!-- Add Message and Plus Fragment Destinations -->
+    <fragment
+        android:id="@+id/fragment_message"
+        android:name="com.zayan.littleloom.ui.messages.MessagesFragment"
+        android:label="@string/messages"
+        tools:layout="@layout/fragment_messages"/>
+
+    <fragment
+        android:id="@+id/fragment_add_item"
+        android:name="com.zayan.littleloom.ui.additem.AddItemFragment"
+        android:label="@string/add_item"
+        tools:layout="@layout/fragment_add_item"/>
 </navigation>

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.zayan.littleloom"
-        minSdk = 24
+        minSdk = 27
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.cardview)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+    implementation(libs.circleimageview)
 
     // Inter Font via Google Fonts
     implementation(libs.compose.fonts)
