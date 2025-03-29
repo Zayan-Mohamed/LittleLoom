@@ -19,7 +19,7 @@ class SettingsFragment : Fragment() {
     ): View? {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
-        setupNavigation()
+//        setupNavigation()
 
         // Set up any additional logic (like settings options, preferences)
         // Example: binding.someSettingOption.setOnClickListener {...}
@@ -27,12 +27,12 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupNavigation() {
-        // Navigate back to the home screen (example of how to go back)
-        binding.btnBackHome.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_homeFragment)
-        }
-    }
+//    private fun setupNavigation() {
+//        // Navigate back to the home screen (example of how to go back)
+//        binding.btnBackHome.setOnClickListener {
+//            findNavController().navigate(R.id.action_settingsFragment_to_homeFragment)
+//        }
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
